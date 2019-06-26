@@ -260,7 +260,7 @@ const getResource = (source: string, type: ResourceType, name: string) => {
  */
 const generateConfigPathsToResources = (configurations: string[], name: string, type: ResourceType) => {
     return configurations.reduce((total: string[], configuration: string) => {
-        const basePackagePaths = ['@hint/configuration-', 'hint-configuration-'];
+        const basePackagePaths = ['@hint/configuration-', 'webhint-configuration-'];
 
         let result = total;
 
@@ -270,7 +270,7 @@ const generateConfigPathsToResources = (configurations: string[], name: string, 
             try {
                 const packagePath = path.dirname(resolvePackage(packageName));
 
-                const resourcePackages = globby(`node_modules/{@hint/,hint-}${type}-${name}/package.json`, { absolute: true, cwd: packagePath }).map((pkg) => {
+                const resourcePackages = globby(`node_modules/{@hint/,webhint-}${type}-${name}/package.json`, { absolute: true, cwd: packagePath }).map((pkg) => {
                     return path.dirname(pkg);
                 });
 
@@ -292,7 +292,7 @@ const generateConfigPathsToResources = (configurations: string[], name: string, 
  *
  * 1. core resource
  * 2. `@hint/` scoped package
- * 3. `hint-` prefixed package
+ * 3. `webhint-` prefixed package
  * 4. external hints
  *
  */
