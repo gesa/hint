@@ -1,16 +1,22 @@
 # Parsers
 
-A `parser` is capable of understanding more deeply a resource and expose
-that information via events so hints can be built on top of this information.
-E.g.: a `JavaScript` parser built on top of `ESLint` so hints for analyzing
-`JavaScript` files can be built.
+A `parser` is capable of understanding more deeply a resource and
+exposing that information via events so hints can be built on top of
+this information. E.g.: the [official `JavaScript`
+parser][@hint/parser-javascript] is built on top of `ESLint`, so hints
+for analyzing JavaScript files can be built.
 
-You can specify what `parser`s you want to use via the `.hintrc`
-configuration file:
+`hint` can take advantage of any package that starts with
+`@hint/parser-`, `webhint-parser-`, or `@namespace/webhint-parser-`.
+Once you've installed the appropriate package, specify which `parser`s
+you want to use via the `.hintrc` configuration file.
+
+For example, if you've installed `@hint/parser-example1` and
+`webhint-parser-example2`, add the following to your configuration:
 
 ```json
 {
-    "parsers": ["parser1", "parser2"]
+    "parsers": ["example1", "example2"]
 }
 ```
 

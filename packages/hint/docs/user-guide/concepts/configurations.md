@@ -1,23 +1,21 @@
 # Configurations
 
-A `configuration` is a package that contains a `.hintrc`
-configuration file. This makes it easier and faster for users
-to have `webhint` up and running and it also facilitates sharing
-configurations for different things such as: related hints, URLs
-to ignore, etc. When installing a `configuration`, all its
-dependencies (`hint`s, `connnector`s, `formatter`s, `parser`s)
-should be installed automatically as well.
+A `configuration` is a way to share `.hintrc` values for different use
+cases, such as related hints, URLs to ignore, shared organization
+standards, etc. When installing a `configuration`, all of its
+dependencies (`hint`s, `connnector`s, `formatter`s, `parser`s) should be
+installed automatically as well.
 
-To use a `configuration`, you have to:
+Conveniently, any configuration you choose when running
+`npm create hintrc` is automatically installed _and_ added to your
+`.hintrc` for you.
 
-1. After installing `hint`, install a configuration package. When
-   running `npm create hintrc`, the wizard will list you the official
-   configuration packages but you can search on `npm`. Any package
-   `@hint/configuration-` or `webhint-configuration-` should be a valid
-   candidate.
-2. Once installed, update your `.hintrc` to use it (this step is not
-   needed if you are using the wizard). Given an npm package called
-   `webhint-configuration-example1`, add the following:
+To manually use a `configuration`, install any package matching
+`@hint/configuration-`, `webhint-configuration-`, or
+`@namespace/webhint-configuration-`. Once installed, update your
+`.hintrc` to use it by adding it to the `extends` array. Given a package
+called `webhint-configuration-example1` OR
+`@orgname/webhint-configuration-example1`, add the following:
 
 ```json
 {
@@ -25,20 +23,22 @@ To use a `configuration`, you have to:
 }
 ```
 
-3. You are done!
-
-The property `extends` is `string[]` so you can extend from
-multiple configuration packages:
+Because the property `extends` is an array of strings, you can extend
+from multiple configuration packages. For example, if you wish to add
+`@hint/configuration-web-recommended`, `webhint-configuration-example2`,
+and `@orgName/webhint-configuration-example3`, your `extends` value will
+look like this:
 
 ```json
 {
-    "extends": ["example1", "example2"]
+    "extends": ["web-recommended", "example2", "example3"]
 }
 ```
 
-The priority applies from left to right. Any values in your `.hintrc`
-file will take precedence. For example, the following will always use
-the `summary` formatter:
+Configuration priority applies from left to right. Any values in your
+`.hintrc` file will take precedence. For example, the following will
+always use the `summary` formatter, regardless of the content of
+`example1` and `example2` configurations: (see Notes for more details)
 
 ```json
 {
@@ -49,10 +49,17 @@ the `summary` formatter:
 
 Notes:
 
-* If you define the property `formatters` when extending
-  a configuration, the formatters in the configuration will be
-  _replaced_ with the value you have defined.
+* If you define the property `formatters` when extending a
+  configuration, the formatters in the configuration will be _replaced_
+  with the value you have defined.
 
-* If you define the property `parsers` when extending a
-  configuration, the parsers in the configuration will be _appended_
-  to the values you have defined.
+* If you define the property `parsers` when extending a configuration,
+  the parsers in the configuration will be _appended_ to the values you
+  have defined.
+
+If you want to implement your own custom configuration, visit the
+[contributor guide][contributor guide].
+
+<!-- Link labels: -->
+
+[contributor guide]: https://webhint.io/docs/contributor-guide/how-to/configuration/

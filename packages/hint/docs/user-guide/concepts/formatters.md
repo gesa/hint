@@ -2,26 +2,44 @@
 
 A `formatter` takes the results of executing the configured hints and
 transforms them to be consumed by the user. A `formatter` can output
-the results via the `console` in different formats, a `JSON` file,
-`XML`, etc.
+the results to a file or the console, and in various styles.
 
-You can specify one or more `formatter`s as the output. E.g.: You want
-a summary in the screen as well as a text report. You need to add the
-name inside the property `formatters`:
+To choose a `formatter`, install its package and add it by name to the 
+`formatter` array within your `.hintrc` file:
 
 ```json
 {
-    "formatters": ["formatter1"]
+    "formatters": ["html"]
 }
 ```
 
-or
+Since `.hintrc` accepts `formatter`s as an array of strings, you can
+specify more than one. An example use case would be wanting a summary
+printed to the console as well as a full html report.
 
 ```json
 {
     "formatters": [
-        "formatter1",
-        "formatter2"
+        "summary",
+        "html"
+    ]
+}
+```
+
+Or perhaps you wish you use a custom `formatter` in addition to or
+instead of the official packages. Any package matching
+`@hint/formatter-`, `webhint-formatter-`, or
+`@namespace/webhint-formatter-` should be a valid candidate.
+
+```bash
+npm i -D @myOrg/webhint-formatter-bubble-letters
+```
+
+```json
+{
+    "formatters": [
+        "html",
+        "bubble-letters"
     ]
 }
 ```
@@ -33,37 +51,37 @@ The officially supported `formatter`s that can be installed via `npm` are:
 * [`@hint/formatter-json`][formatter-json] does a `JSON.stringify()` of
   the results. Output is not user friendly:
 
-![Example output for the json formatter](images/json-output.png)
+  ![Example output for the json formatter](images/json-output.png)
 
 * [`@hint/formatter-stylish`][formatter-stylish] prints the results in
   table format indicating the resource, line, and column:
 
-![Example output for the stylish formatter](images/stylish-output.png)
+  ![Example output for the stylish formatter](images/stylish-output.png)
 
 * [`@hint/formatter-codeframe`][formatter-codeframe] shows also the code
   where the error was found if applicable:
 
-![Example output for the codeframe formatter](images/codeframe.png)
+  ![Example output for the codeframe formatter](images/codeframe.png)
 
 * [`@hint/formatter-summary`][formatter-summary] shows a summary
   of all the warnings and errors found for all the resources:
 
-![Example output for the summary formatter](images/summary-output.png)
+  ![Example output for the summary formatter](images/summary-output.png)
 
 * [`@hint/formatter-excel`][formatter-excel] creates an Excel spreadsheet
   with a sheet with the results per resource:
 
-![Example output for the summary sheet of the excel formatter](images/excel-summary.png)
+  ![Example output for the summary sheet of the excel formatter](images/excel-summary.png)
 
-![Example output for one of the details sheet of the excel formatter](images/excel-details.png)
+  ![Example output for one of the details sheet of the excel formatter](images/excel-details.png)
 
 * [`@hint/formatter-html`][formatter-html] creates an HTML page in
   the folder `hint-report/<url_analyzed>` with the result:
 
-![Example out for the HTML result of the html formatter](images/html-output.png)
+  ![Example out for the HTML result of the html formatter](images/html-output.png)
 
-Note: If you are running customs hints the buttons `Why is this important`
-and `How to solve it` will not work.
+Note: If you are running custom hints, the buttons "Why is this
+important" and "How to solve it" will not work.
 
 If you want to implement your own `formatter`, visit the [contributor
 guide][contributor guide].
