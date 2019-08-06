@@ -7,7 +7,7 @@ resources, network data, etc.
 
 To use a connector, first install its package. The package name should
 start with `@hint/connector-`, `webhint-connector-`, or
-`@namespace/webhint-connector-`. Then, add the package name to the
+`@scope/webhint-connector-`. Then, add the package name to the
 `connector` object within your .hintrc file. For example, if you
 installed `@hint/connector-local`, add the following:
 

@@ -29,7 +29,7 @@ the console as well as a full html report.
 Or perhaps you wish you use a custom formatter in addition to or instead
 of the official packages. Any package matching the pattern
 `@hint/formatter-`, `webhint-formatter-`, or
-`@namespace/webhint-formatter-` should be a valid candidate.
+`@scope/webhint-formatter-` should be a valid candidate.
 
 ```bash
 npm i -D @myOrg/webhint-formatter-bubble-letters
@@ -39,7 +39,7 @@ npm i -D @myOrg/webhint-formatter-bubble-letters
 {
     "formatters": [
         "@hint/formatter-html",
-        "@myOrg/webhint-formatter-bubble-letters"
+        "@myorg/webhint-formatter-bubble-letters"
     ]
 }
 ```

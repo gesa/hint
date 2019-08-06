@@ -8,7 +8,7 @@ written.
 
 To utilize a parser, first install its package. The package name should
 begin with `@hint/parser-`, `webhint-parser-`, or
-`@namespace/webhint-parser-`. Once you've installed the appropriate
+`@scope/webhint-parser-`. Once you've installed the appropriate
 package, specify which parsers you want to use by adding them to the
 `parsers` array in your .hintrc configuration file.
 

@@ -8,7 +8,7 @@ contributor guide][how to hint].
 ## Installing hints
 
 To utilize a hint, install any package matching `@hint/hint-`,
-`webhint-hint-`, or `@namespace/webhint-hint-`. Then, add that package's
+`webhint-hint-`, or `@scope/webhint-hint-`. Then, add that package's
 name to your .hintrc's `hints` array or object.
 
 For example, to use the [Nu HTML test][html-checker] first install its

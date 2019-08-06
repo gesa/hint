@@ -13,7 +13,7 @@ Conveniently, any configuration you choose when running
 To add a configuration other than (or in addition to) those offered by
 running `npm create hintrc`, first install its package. Make sure the
 package name begins with `@hint/configuration-`,
-`webhint-configuration-`, or `@namespace/webhint-configuration-`. Once
+`webhint-configuration-`, or `@scope/webhint-configuration-`. Once
 installed, update your .hintrc to use it by adding the package name to
 the `extends` array. Given a package called
 `webhint-configuration-example1`, add the following:
@@ -27,7 +27,7 @@ the `extends` array. Given a package called
 Because the property `extends` is an array of strings, you can extend
 from multiple configuration packages. For example, if you wish to add
 `@hint/configuration-web-recommended`, `webhint-configuration-example2`,
-and `@orgName/webhint-configuration-example3`, your `extends` value will
+and `@orgname/webhint-configuration-example3`, your `extends` value will
 look like this:
 
 ```json
@@ -35,7 +35,7 @@ look like this:
     "extends": [
         "@hint/configuration-web-recommended",
         "webhint-configuration-example2",
-        "@orgName/webhint-configuration-example3"
+        "@orgname/webhint-configuration-example3"
     ]
 }
 ```
