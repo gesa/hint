@@ -31,13 +31,16 @@ installed; webhint cannot install it for you.
 The officially supported connectors which can be installed using your
 preferred package manager are:
 
-* [`@hint/connector-chrome`][connector-chrome]. Uses Google Chrome via
-  the [chrome debugging protocol][cdp].
 * [`@hint/connector-jsdom`][connector-jsdom]. Uses [jsdom][].
 * [`@hint/connector-local`][connector-local]. Analyzes the local files
   in your project.
 * [`@hint/connector-puppeteer`][connector-puppeteer]. Uses [puppeteer][]
-  to communicate with the browser specified in its options object.
+  to communicate with locally installed browsers.
+
+### Legacy connectors
+
+Note that [`@hint/connector-chrome`][connector-chrome] has been
+deprecated in favor of the [puppeteer connector][connector puppeteer].
 
 ## Configuration
 
@@ -63,7 +66,6 @@ guide][].
 
 <!-- Link labels: -->
 
-[cdp]: https://chromedevtools.github.io/devtools-protocol/
 [connector-chrome]: https://webhint.io/docs/user-guide/connectors/connector-chrome/
 [connector-jsdom]: https://webhint.io/docs/user-guide/connectors/connector-jsdom/
 [connector-local]: https://webhint.io/docs/user-guide/connectors/connector-local/
