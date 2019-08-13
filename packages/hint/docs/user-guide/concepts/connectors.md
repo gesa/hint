@@ -40,7 +40,7 @@ preferred package manager are:
 ### Legacy connectors
 
 Note that [`@hint/connector-chrome`][connector-chrome] has been
-deprecated in favor of the [puppeteer connector][connector puppeteer].
+deprecated in favor of the [puppeteer connector][connector-puppeteer].
 
 ## Configuration
 
