@@ -10,15 +10,17 @@ To utilize a parser, first install its package. The package name should
 begin with `@hint/parser-`, `webhint-parser-`, or
 `@scope/webhint-parser-`. Once you've installed the appropriate
 package, specify which parsers you want to use by adding them to the
-`parsers` array in your .hintrc configuration file.
+`parsers` array in your .hintrc configuration file. Packages within the
+`@hint/` namespace (like, for example, `@hint/parser-html`) can be added
+using their short name.
 
-For example, if you've installed `@hint/parser-example1` and
+If you've installed `@hint/parser-example1` and
 `webhint-parser-example2`, add the following:
 
 ```json
 {
     "parsers": [
-        "@hint/parser-example1",
+        "example1",
         "webhint-parser-example2"
     ]
 }

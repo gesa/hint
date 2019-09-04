@@ -5,11 +5,13 @@ transforms them to be consumed by the user. A formatter can output
 results to a file or the console, in various styles.
 
 To choose a formatter, install its package and add that package name to
-the `formatters` array within your .hintrc file:
+the `formatters` array within your .hintrc file. Packages within the
+`@hint/` namespace (like, for example, `@hint/formatter-html`) can be
+added using their short name.
 
 ```json
 {
-    "formatters": ["@hint/formatter-html"]
+    "formatters": ["html"]
 }
 ```
 
@@ -20,8 +22,8 @@ the console as well as a full html report.
 ```json
 {
     "formatters": [
-        "@hint/formatter-summary",
-        "@hint/formatter-html"
+        "summary",
+        "html"
     ]
 }
 ```
@@ -38,7 +40,7 @@ npm i -D @myOrg/webhint-formatter-bubble-letters
 ```json
 {
     "formatters": [
-        "@hint/formatter-html",
+        "html",
         "@myorg/webhint-formatter-bubble-letters"
     ]
 }

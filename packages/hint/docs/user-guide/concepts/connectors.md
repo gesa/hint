@@ -8,13 +8,26 @@ resources, network data, etc.
 To use a connector, first install its package. The package name should
 start with `@hint/connector-`, `webhint-connector-`, or
 `@scope/webhint-connector-`. Then, add the package name to the
-`connector` object within your .hintrc file. For example, if you
-installed `@hint/connector-local`, add the following:
+`connector` object within your .hintrc file. Packages within the
+`@hint/` namespace (like, for example, `@hint/connector-local`) can be
+added using their short name.
+ 
+```json
+{
+    "connector": {
+        "name": "local"
+    }
+}
+```
+
+Otherwise, use the full package name. If you were to use the
+hypothetical connector `@orgName/webhint-connector-super-duper`, your
+`connector` object would look like this:
 
 ```json
 {
     "connector": {
-        "name": "@hint/connector-local"
+        "name": "@orgName/webhint-connector-super-duper"
     }
 }
 ```
@@ -52,8 +65,10 @@ your `connector` object with the values you want to modify:
 ```json
 {
     "connector": {
-        "name": "@hint/connector-name",
-        "options": {}
+        "name": "jsdom",
+        "options": {
+            "ignoreHTTPSError": false
+        }
     }
 }
 ```

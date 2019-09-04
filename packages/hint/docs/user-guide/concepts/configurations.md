@@ -14,13 +14,14 @@ To add a configuration other than (or in addition to) those offered by
 running `npm create hintrc`, first install its package. Make sure the
 package name begins with `@hint/configuration-`,
 `webhint-configuration-`, or `@scope/webhint-configuration-`. Once
-installed, update your .hintrc to use it by adding the package name to
-the `extends` array. Given a package called
-`webhint-configuration-example1`, add the following:
+installed, update your .hintrc to use it by adding your new configuration
+to the `extends` array. Packages within the `@hint/` namespace (like,
+for example, `@hint/configuration-example1`) can be added using their
+short name.
 
 ```json
 {
-    "extends": ["webhint-configuration-example1"]
+    "extends": ["example1"]
 }
 ```
 
@@ -33,7 +34,7 @@ look like this:
 ```json
 {
     "extends": [
-        "@hint/configuration-web-recommended",
+        "web-recommended",
         "webhint-configuration-example2",
         "@orgname/webhint-configuration-example3"
     ]

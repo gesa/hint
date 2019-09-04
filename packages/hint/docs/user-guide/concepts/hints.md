@@ -9,7 +9,9 @@ contributor guide][how to hint].
 
 To utilize a hint, install any package matching `@hint/hint-`,
 `webhint-hint-`, or `@scope/webhint-hint-`. Then, add that package's
-name to your .hintrc's `hints` array or object.
+name to your .hintrc's `hints` array or object. Packages within the
+`@hint/` namespace (like, for example, `@hint/hint-html-checker`) can be
+added using their short name.
 
 For example, to use the [Nu HTML test][html-checker] first install its
 package:
@@ -23,10 +25,30 @@ Then, add `@hint/hint-html-checker` to your .hintrc.
 ```json
 {
     "hints": [
-        "@hint/hint-html-checker:error"
+        "html-checker:error"
     ]
 }
 ```
+
+To add a hint from a developer outside of the hint namespace, add it
+using its full package name. If you ran the following to add hints to
+your package.json…
+
+```shell script
+npm -i -D @myOrg/webhint-hint-clever-custom-audit webhint-hint-another-example1
+```
+
+…add them to your .hintrc like so:
+
+```json
+{
+    "hints": [
+        "@myOrg/webhint-hint-clever-custom-audit",
+        "webhint-hint-another-example1"
+    ]
+}
+```
+
 
 ## Hint configuration
 
@@ -48,7 +70,7 @@ using an npm package called `@hint/hint-example1`:
 ```json
 {
     "hints": [
-        "@hint/hint-example1:warning"
+        "example1:warning"
     ]
 }
 ```
@@ -56,7 +78,7 @@ using an npm package called `@hint/hint-example1`:
 ```json
 {
     "hints": {
-        "@hint/hint-example1": "warning"
+        "example1": "warning"
     }
 }
 ```
@@ -69,7 +91,7 @@ A hint that has the `off` severity applied:
 ```json
 {
     "hints": [
-        "-@hint/hint-example1"
+        "-example1"
     ]
 }
 ```
@@ -79,7 +101,7 @@ A hint that has the `warning` severity applied:
 ```json
 {
     "hints": [
-        "?@hint/hint-example1"
+        "?example1"
     ]
 }
 ```
@@ -91,7 +113,7 @@ in that case it will be similar to the following:
 {
     "hints": [
         [
-            "@hint/hint-example1:warning",
+            "example1:warning",
             {
                 "customization1": "value1",
                 "customization2": "value2"
@@ -107,7 +129,7 @@ or
 {
     "hints": [
         {
-            "@hint/hint-example1": [
+            "example1": [
                 "warning",
                 {
                     "customization1": "value1",
